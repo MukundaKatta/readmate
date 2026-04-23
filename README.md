@@ -1,22 +1,45 @@
 # ReadMate
 
-> The reading coach for your first-grader.
+The reading coach for your first-grader. Kids read aloud — ReadMate listens, gently corrects, and celebrates.
 
-Kids read aloud. ReadMate listens, gently corrects, and celebrates. Parents get a progress report every week.
+**Status:** v0 skeleton — landing page + read-aloud demo route. Speech recognition not yet wired.
 
-## What you get
+---
 
-- **200 leveled books** — Built on real phonics curricula. Your child reads at their level, not yours.
-- **Patient listening** — Catches stumbles without interrupting. Kids stay in flow. Confidence grows.
-- **Weekly parent report** — What they loved. What was hard. What to practice next week.
+## Stack
 
-## Category
+| Layer | Choice |
+|---|---|
+| Framework | Next.js 15 (App Router) |
+| Language | TypeScript (strict) |
+| Styling | Tailwind v4 |
+| Fonts | Inter via `next/font/google` |
+| Hosting | Vercel (zero config) |
+| Waitlist | https://waitlist-api-sigma.vercel.app |
 
-Education. Part of a 50-product exploration of high-demand consumer and SMB markets.
+## Run locally
 
-## Status
+```bash
+pnpm install
+pnpm dev
+```
 
-Landing page live with interactive demo and functional waitlist.
+Open http://localhost:3000.
 
-- **Live:** https://mukundakatta.github.io/readmate/
-- **Waitlist API:** https://waitlist-api-sigma.vercel.app/api/waitlist
+## Deploy
+
+Push to `main` — Vercel picks it up automatically. No environment variables required.
+
+## Routes
+
+| Route | Description |
+|---|---|
+| `/` | Landing page (original copy + design preserved) |
+| `/try` | v0 read-aloud demo — words fade in at reading pace, mock listen step with Continue button |
+| `/api/waitlist` | `POST { email }` → forwards to waitlist-api-sigma with `product: "readmate"` |
+
+## What's next
+
+- Wire speech recognition for real read-aloud listening
+- AI coaching with gentle correction feedback
+- Parent dashboard with weekly progress reports
